@@ -5,9 +5,9 @@
         require("functions/header.php");
         $pseudo = $_GET["pseudo"];
 
-        //var_dump($_GET["pseudo"]);
+        var_dump($_GET["pseudo"]);
 
-        // select tout dans la table users à partir de pseudo 
+        // select tout dans la table recettes à partir de pseudo 
             $req = $db->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
             $req->bindParam(":pseudo", $_GET["pseudo"]);
             $req->execute();
@@ -40,15 +40,17 @@
         <?php
     }
 
-        // else si nouveau, donc sans aucunes recettes
+        // Si l'utilisateur est nouveau, il n'a pas de recettes: else
         else{
     ?> 
         <div class="nouveau">
             <?php
             ?>
-            <p class="bienvenue"> <?php echo "Bienvenue " . $pseudo ?> </p> 
-            <button class="ajout">Ajout d'une recette</button>        
+            <p class="bienvenue"> <?php echo "Bienvenue " . $pseudo ?> </p>
+            <p>Soyez le premier à poster une recette !</p>
+            <button class="ajout">Ajouter</button>
         </div>
+       
         <?php
     }
     ?> 

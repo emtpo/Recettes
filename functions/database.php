@@ -1,6 +1,6 @@
 <?php
 $DB_HOST = "localhost";
-$DB_NAME = "tchat-esd";
+$DB_NAME = "recettes";
 $DB_USER = "root";
 $DB_PASSWORD = "";
 try {

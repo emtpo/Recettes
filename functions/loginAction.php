@@ -1,19 +1,19 @@
 <?php
 require("database.php");
 
-//si le champs pseudo est vide
-if( empty($_POST["pseudo"])){
-    $message = "Vous devez remplir un pseudo";
-    header("Location: ../index.php?message=$message");
-}
+//Si pseudo empty
+    if( empty($_POST["pseudo"])){
+        $message = "Merci de mettre votre pseudo";
+        header("Location: ../index.php?message=$message");
+    }
 
-//si le champs pseudo a été rempli, début check PDO
-if( !empty($_POST["pseudo"])){
-    $req = $db->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
-    $req->bindParam(":pseudo", $_POST["pseudo"]);
-    $req->execute();
+//Si pseudo entré, check:
+    if( !empty($_POST["pseudo"])){
+        $req = $db->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
+        $req->bindParam(":pseudo", $_POST["pseudo"]);
+        $req->execute();
 
-    //si pseudo n'est pas dans la base de données
+    //Si c'est un nouvel utilisateur, alors pseudo inconnu dans la bdd
     $result = $req->fetch(PDO::FETCH_ASSOC);
     if($result == false){
         $pseudo =  $_POST["pseudo"];

@@ -5,10 +5,10 @@ body {
 
 .introduction {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  margin-left: 22%;
   padding-top: 100px;
-  color: #1e3799;
+  color: white;
 }
 .introduction h1 {
   font-size: 50px;
@@ -51,6 +51,7 @@ body {
   justify-content: center;
   flex-direction: column;
   margin-left: 22%;
+  color: white;
 }
 
 .bienvenue {
@@ -78,7 +79,7 @@ body {
   margin-right: 100px;
 }
 .miam .gauche div {
-  background-color: #FEA1A9;
+  background-color: #1e3799;
   margin-top: 130px;
   padding: 14px;
   position: absolute;
@@ -90,7 +91,7 @@ body {
   font-size: 60px;
   width: 500px;
   font-weight: 100;
-  color: #2F252E;
+  color: white;
   margin-top: 85px;
 }
 .miam .gauche h2 {
