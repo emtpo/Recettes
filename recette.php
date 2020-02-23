@@ -1,27 +1,21 @@
-<body class="recette">
+<body class="bodyrecette">
 
-<?php
-require("functions/database.php");
-require("functions/header.php");
-$pseudo = $_GET["pseudo"];
+    <?php
+        require("functions/database.php");
+        require("functions/header.php");
+        $pseudo = $_GET["pseudo"];
 
-//var_dump($_GET["pseudo"]);
-?>
+        //var_dump($_GET["pseudo"]);
 
-<div class="btn">
-    <a class="back" href="index.php">Retour</a>
-</div>
+        // select tout dans la table users à partir de pseudo 
+            $req = $db->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
+            $req->bindParam(":pseudo", $_GET["pseudo"]);
+            $req->execute();
+            $result = $req->fetch(PDO::FETCH_ASSOC);
 
-<?php
-// select tout dans la table users à partir de pseudo 
-$req = $db->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
-$req->bindParam(":pseudo", $_GET["pseudo"]);
-$req->execute();
-$result = $req->fetch(PDO::FETCH_ASSOC);
-
-// if un résultat est trouvé dans la base de données
-    if($result == true){
-        ?>
+        // if un résultat est trouvé dans la base de données
+            if($result == true){
+    ?>
         <div class="miam">
             <div class="gauche">
                 <div></div>
@@ -33,7 +27,7 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
                 <h2>Ingrédients</h2>
                 <p><?php echo $result["ingredients"]; ?></p> <br>
                 <h2>Étapes</h2>
-                <p><?php echo $result["étapes"]; ?></p>
+                <p><?php echo $result["etapes"]; ?></p>
             </div>
 
        
@@ -46,16 +40,16 @@ $result = $req->fetch(PDO::FETCH_ASSOC);
         <?php
     }
 
-// else pas de résultat
-    else{
-        ?> 
-        <div class="center">
-        <?php
-        ?> <p class="hello"> <?php echo "Hello " . $pseudo ?> </p> 
-        <button class="add">Ajouter une recette</button>        
+        // else si nouveau, donc sans aucunes recettes
+        else{
+    ?> 
+        <div class="nouveau">
+            <?php
+            ?>
+            <p class="bienvenue"> <?php echo "Bienvenue " . $pseudo ?> </p> 
+            <button class="ajout">Ajout d'une recette</button>        
         </div>
         <?php
     }
     ?> 
-
-    </body>
+</body>

@@ -1,0 +1,105 @@
+body {
+  font-family: "Montserrat";
+  background: #1e272e;
+}
+
+.introduction {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 100px;
+  color: #1e3799;
+}
+.introduction h1 {
+  font-size: 50px;
+}
+.introduction form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+.introduction input[type=submit] {
+  background-color: #1e3799;
+  border: none;
+  color: white;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 32px;
+}
+.introduction input[type=text] {
+  border: none;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 32px;
+}
+.introduction .message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.bodyrecette {
+  background-color: #1e272e;
+  display: flex;
+}
+
+.nouveau {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 22%;
+}
+
+.bienvenue {
+  font-size: 30px;
+  color: white;
+}
+
+.ajout {
+  background-color: #1e3799;
+  color: white;
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 80px;
+}
+
+.miam {
+  display: flex !important;
+}
+.miam .gauche {
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-right: 100px;
+}
+.miam .gauche div {
+  background-color: #FEA1A9;
+  margin-top: 130px;
+  padding: 14px;
+  position: absolute;
+  z-index: -17;
+  width: 350px;
+}
+.miam .gauche h1 {
+  font-family: "Abril Fatface", cursive;
+  font-size: 60px;
+  width: 500px;
+  font-weight: 100;
+  color: #2F252E;
+  margin-top: 85px;
+}
+.miam .gauche h2 {
+  font-size: 18px;
+}
+.miam .droite {
+  display: flex;
+  width: 50vw;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=styles.css.map */
