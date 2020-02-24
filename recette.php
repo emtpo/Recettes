@@ -13,7 +13,7 @@
             $result = $req->fetch(PDO::FETCH_ASSOC);
 
         // if un résultat est trouvé dans la base de données
-            if($result == false){
+            if($result == true){
     ?> 
     
         <?php 
