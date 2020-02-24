@@ -5,36 +5,36 @@
         require("functions/header.php");
         $pseudo = $_GET["pseudo"];
 
-        var_dump($_GET["pseudo"]);
 
         // select tout dans la table recettes à partir de pseudo 
-            $req = $db->prepare("SELECT * FROM users WHERE pseudo = :pseudo");
+            $req = $db->prepare("SELECT * FROM `users` WHERE pseudo = :pseudo");
             $req->bindParam(":pseudo", $_GET["pseudo"]);
             $req->execute();
             $result = $req->fetch(PDO::FETCH_ASSOC);
 
         // if un résultat est trouvé dans la base de données
-            if($result == true){
-    ?>
-        <div class="miam">
-            <div class="gauche">
-                <div></div>
-                <div></div>
-            <?php 
+            if($result == false){
+    ?> 
+    
+        <?php 
             $result=str_replace(array("\r\n","\n"),'<br />',$result);
-            ?> 
-                <h1><?php echo $result["recette"];?></h1>
-                <h2>Ingrédients</h2>
+        ?> 
+        <h1><?php echo $result["recette"];?></h1>
+        
+        <div class="recette">
+            <div class="ingredients">
+                <h4>Vos Ingrédients</h4>
                 <p><?php echo $result["ingredients"]; ?></p> <br>
-                <h2>Étapes</h2>
+            </div>
+
+            <div class="etapes">
+                <h4>Les Étapes</h4>
                 <p><?php echo $result["etapes"]; ?></p>
             </div>
 
-       
-            <div class="droite">
+            <div class="image">
                 <img src="<?php echo $result["image"]; ?>" alt=""></img>
             </div>
-
 
         </div>
         <?php

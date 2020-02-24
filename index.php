@@ -6,7 +6,7 @@ require("functions/header.php");
    
     <div class="introduction">
         <h1>Boîte à Recettes</h1>
-        <p>Connecte toi et retrouve tes meilleurs recettes !</p>
+        <p>Connecte toi et retrouves tes meilleurs recettes !</p>
         <form action="functions/loginAction.php" method="post">
             <input type="text" name="pseudo" id="pseudo" placeholder="pseudo">
             <input type="submit"></input>
